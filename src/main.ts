@@ -41,9 +41,15 @@ async function getMergedPullRequest(
   sha: string
 ): Promise<PullRequest | null> {
   const octokit = github.getOctokit(githubToken);
-  type PullsListResponseData = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.pulls.list>;
-  type Label = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.pulls.get>['labels'][0];
-  type Assignee = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.pulls.get>['assignees'][0];
+  type PullsListResponseData = GetResponseDataTypeFromEndpointMethod<
+    typeof octokit.rest.pulls.list
+  >;
+  type Label = GetResponseDataTypeFromEndpointMethod<
+    typeof octokit.rest.pulls.get
+  >['labels'][0];
+  type Assignee = GetResponseDataTypeFromEndpointMethod<
+    typeof octokit.rest.pulls.get
+  >['assignees'][0];
 
   const resp = await octokit.rest.pulls.list({
     owner,
@@ -54,7 +60,9 @@ async function getMergedPullRequest(
     per_page: 100
   });
 
-  const pull = resp.data.find((p: PullsListResponseData) => p.merge_commit_sha === sha);
+  const pull = resp.data.find(
+    (p: PullsListResponseData) => p.merge_commit_sha === sha
+  );
   if (!pull) {
     return null;
   }
