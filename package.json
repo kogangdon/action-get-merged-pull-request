@@ -24,12 +24,13 @@
   "license": "Apache 2.0",
   "dependencies": {
     "@actions/core": "^1.2.3",
-    "@actions/github": "^2.1.1",
-    "@octokit/rest": "^17.9.3",
+    "@actions/github": "^6.0.0",
+    "@octokit/rest": "^21.1.0",
+    "@octokit/types": "^13.7.0",
     "semver": "^7.3.2"
   },
   "devDependencies": {
-    "@octokit/webhooks": "^7.4.0",
+    "@octokit/webhooks": "^13.4.2",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.7",
     "@types/semver": "^7.2.0",

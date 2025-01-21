@@ -1,5 +1,6 @@
-import * as github from '@actions/github';
-import * as core from '@actions/core';
+const github = require('@actions/github');
+const core = require('@actions/core');
+import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 
 interface PullRequest {
   title: string;
@@ -27,7 +28,7 @@ async function run(): Promise<void> {
     core.setOutput('number', pull.number);
     core.setOutput('labels', pull.labels?.join('\n'));
     core.setOutput('assignees', pull.assignees?.join('\n'));
-  } catch (e) {
+  } catch (e: any) {
     core.error(e);
     core.setFailed(e.message);
   }
@@ -39,9 +40,12 @@ async function getMergedPullRequest(
   repo: string,
   sha: string
 ): Promise<PullRequest | null> {
-  const client = new github.GitHub(githubToken);
+  const octokit = github.getOctokit(githubToken);
+  type PullsListResponseData = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.pulls.list>;
+  type Label = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.pulls.get>['labels'][0];
+  type Assignee = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.pulls.get>['assignees'][0];
 
-  const resp = await client.pulls.list({
+  const resp = await octokit.rest.pulls.list({
     owner,
     repo,
     sort: 'updated',
@@ -50,7 +54,7 @@ async function getMergedPullRequest(
     per_page: 100
   });
 
-  const pull = resp.data.find(p => p.merge_commit_sha === sha);
+  const pull = resp.data.find((p: PullsListResponseData) => p.merge_commit_sha === sha);
   if (!pull) {
     return null;
   }
@@ -59,8 +63,8 @@ async function getMergedPullRequest(
     title: pull.title,
     body: pull.body,
     number: pull.number,
-    labels: pull.labels.map(l => l.name),
-    assignees: pull.assignees.map(a => a.login)
+    labels: pull.labels.map((l: Label) => l.name),
+    assignees: pull.assignees.map((a: Assignee) => a.login)
   };
 }
 
