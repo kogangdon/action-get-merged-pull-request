@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^7.2.0
     version: 7.5.8
   '@typescript-eslint/parser':
-    specifier: ^2.8.0
-    version: 2.34.0(eslint@6.8.0)(typescript@3.9.10)
+    specifier: ^8.21.0
+    version: 8.21.0(eslint@6.8.0)(typescript@5.7.3)
   '@zeit/ncc':
     specifier: ^0.20.5
     version: 0.20.5
@@ -42,13 +42,13 @@ devDependencies:
     version: 6.8.0
   eslint-plugin-github:
     specifier: ^2.0.0
-    version: 2.0.0(@babel/plugin-syntax-flow@7.26.0)(@babel/plugin-transform-react-jsx@7.25.9)(@types/node@22.10.7)(eslint@6.8.0)(flow-bin@0.259.1)(graphql@15.10.1)(typescript@3.9.10)
+    version: 2.0.0(@babel/plugin-syntax-flow@7.26.0)(@babel/plugin-transform-react-jsx@7.25.9)(@types/node@22.10.7)(eslint@6.8.0)(flow-bin@0.259.1)(graphql@15.10.1)(jest@29.7.0)(typescript@5.7.3)
   eslint-plugin-jest:
-    specifier: ^22.21.0
-    version: 22.21.0(eslint@6.8.0)
+    specifier: ^28.11.0
+    version: 28.11.0(@typescript-eslint/eslint-plugin@1.13.0)(eslint@6.8.0)(jest@29.7.0)(typescript@5.7.3)
   eslint-plugin-prettier:
-    specifier: ^3.1.3
-    version: 3.4.1(eslint-config-prettier@4.3.0)(eslint@6.8.0)(prettier@1.19.1)
+    specifier: ^5.2.3
+    version: 5.2.3(eslint-config-prettier@4.3.0)(eslint@6.8.0)(prettier@3.4.2)
   jest:
     specifier: ^29.7.0
     version: 29.7.0(@types/node@22.10.7)
@@ -59,14 +59,14 @@ devDependencies:
     specifier: ^3.13.1
     version: 3.14.1
   prettier:
-    specifier: ^1.19.1
-    version: 1.19.1
+    specifier: ^3.4.2
+    version: 3.4.2
   ts-jest:
-    specifier: ^24.2.0
-    version: 24.3.0(jest@29.7.0)
+    specifier: ^29.2.5
+    version: 29.2.5(@babel/core@7.26.0)(jest@29.7.0)(typescript@5.7.3)
   typescript:
-    specifier: ^3.9.3
-    version: 3.9.10
+    specifier: ^5.7.3
+    version: 5.7.3
 
 packages:
 
@@ -480,7 +480,7 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@endemolshinegroup/cosmiconfig-typescript-loader@3.0.2(cosmiconfig@7.0.0)(typescript@3.9.10):
+  /@endemolshinegroup/cosmiconfig-typescript-loader@3.0.2(cosmiconfig@7.0.0)(typescript@5.7.3):
     resolution: {integrity: sha512-QRVtqJuS1mcT56oHpVegkKBlgtWjXw/gHNWO3eL9oyB5Sc7HBoc2OLG/nYpVfT/Jejvo3NUrD0Udk7XgoyDKkA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -489,10 +489,20 @@ packages:
       cosmiconfig: 7.0.0
       lodash.get: 4.4.2
       make-error: 1.3.6
-      ts-node: 9.1.1(typescript@3.9.10)
+      ts-node: 9.1.1(typescript@5.7.3)
       tslib: 2.8.1
     transitivePeerDependencies:
       - typescript
+    dev: true
+
+  /@eslint-community/eslint-utils@4.4.1(eslint@6.8.0):
+    resolution: {integrity: sha512-s3O3waFUrMV8P/XaF/+ZTp1X9XBZW1a4B97ZnjQF2KYWaFD2A8KyFBsrsfSjEmjn3RGWAIuvlneuZm3CUK3jbA==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
+    dependencies:
+      eslint: 6.8.0
+      eslint-visitor-keys: 3.4.3
     dev: true
 
   /@fastify/busboy@2.1.1:
@@ -1205,6 +1215,11 @@ packages:
       - supports-color
     dev: true
 
+  /@pkgr/core@0.1.1:
+    resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
+    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+    dev: true
+
   /@rtsao/scc@1.1.0:
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
     dev: true
@@ -1328,7 +1343,7 @@ packages:
       '@types/yargs-parser': 21.0.3
     dev: true
 
-  /@typescript-eslint/eslint-plugin@1.13.0(@typescript-eslint/parser@1.13.0)(eslint@6.8.0)(typescript@3.9.10):
+  /@typescript-eslint/eslint-plugin@1.13.0(@typescript-eslint/parser@1.13.0)(eslint@6.8.0)(typescript@5.7.3):
     resolution: {integrity: sha512-WQHCozMnuNADiqMtsNzp96FNox5sOVpU8Xt4meaT4em8lOG1SrOv92/mUbEHQVh90sldKSfcOc/I0FOb/14G1g==}
     engines: {node: ^6.14.0 || ^8.10.0 || >=9.10.0}
     peerDependencies:
@@ -1341,7 +1356,7 @@ packages:
       eslint-utils: 1.4.3
       functional-red-black-tree: 1.0.1
       regexpp: 2.0.1
-      tsutils: 3.21.0(typescript@3.9.10)
+      tsutils: 3.21.0(typescript@5.7.3)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -1358,22 +1373,6 @@ packages:
       eslint-scope: 4.0.3
     dev: true
 
-  /@typescript-eslint/experimental-utils@2.34.0(eslint@6.8.0)(typescript@3.9.10):
-    resolution: {integrity: sha512-eS6FTkq+wuMJ+sgtuNTtcqavWXqsflWcfBnlYhg/nS4aZ1leewkXGbvBhaapn1q6qf4M71bsR1tez5JTRMuqwA==}
-    engines: {node: ^8.10.0 || ^10.13.0 || >=11.10.1}
-    peerDependencies:
-      eslint: '*'
-    dependencies:
-      '@types/json-schema': 7.0.15
-      '@typescript-eslint/typescript-estree': 2.34.0(typescript@3.9.10)
-      eslint: 6.8.0
-      eslint-scope: 5.1.1
-      eslint-utils: 2.1.0
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-    dev: true
-
   /@typescript-eslint/parser@1.13.0(eslint@6.8.0):
     resolution: {integrity: sha512-ITMBs52PCPgLb2nGPoeT4iU3HdQZHcPaZVw+7CsFagRJHUhyeTgorEwHXhFf3e7Evzi8oujKNpHc8TONth8AdQ==}
     engines: {node: ^6.14.0 || ^8.10.0 || >=9.10.0}
@@ -1387,24 +1386,35 @@ packages:
       eslint-visitor-keys: 1.3.0
     dev: true
 
-  /@typescript-eslint/parser@2.34.0(eslint@6.8.0)(typescript@3.9.10):
-    resolution: {integrity: sha512-03ilO0ucSD0EPTw2X4PntSIRFtDPWjrVq7C3/Z3VQHRC7+13YB55rcJI3Jt+YgeHbjUdJPcPa7b23rXCBokuyA==}
-    engines: {node: ^8.10.0 || ^10.13.0 || >=11.10.1}
+  /@typescript-eslint/parser@8.21.0(eslint@6.8.0)(typescript@5.7.3):
+    resolution: {integrity: sha512-Wy+/sdEH9kI3w9civgACwabHbKl+qIOu0uFZ9IMKzX3Jpv9og0ZBJrZExGrPpFAY7rWsXuxs5e7CPPP17A4eYA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: ^5.0.0 || ^6.0.0
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '>=4.8.4 <5.8.0'
     dependencies:
-      '@types/eslint-visitor-keys': 1.0.0
-      '@typescript-eslint/experimental-utils': 2.34.0(eslint@6.8.0)(typescript@3.9.10)
-      '@typescript-eslint/typescript-estree': 2.34.0(typescript@3.9.10)
+      '@typescript-eslint/scope-manager': 8.21.0
+      '@typescript-eslint/types': 8.21.0
+      '@typescript-eslint/typescript-estree': 8.21.0(typescript@5.7.3)
+      '@typescript-eslint/visitor-keys': 8.21.0
+      debug: 4.4.0
       eslint: 6.8.0
-      eslint-visitor-keys: 1.3.0
-      typescript: 3.9.10
+      typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@typescript-eslint/scope-manager@8.21.0:
+    resolution: {integrity: sha512-G3IBKz0/0IPfdeGRMbp+4rbjfSSdnGkXsM/pFZA8zM9t9klXDnB/YnKOBQ0GoPmoROa4bCq2NeHgJa5ydsQ4mA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    dependencies:
+      '@typescript-eslint/types': 8.21.0
+      '@typescript-eslint/visitor-keys': 8.21.0
+    dev: true
+
+  /@typescript-eslint/types@8.21.0:
+    resolution: {integrity: sha512-PAL6LUuQwotLW2a8VsySDBwYMm129vFm4tMVlylzdoTybTHaAi0oBp7Ac6LhSrHHOdLM3efH+nAR6hAWoMF89A==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dev: true
 
   /@typescript-eslint/typescript-estree@1.13.0:
@@ -1415,25 +1425,48 @@ packages:
       semver: 5.5.0
     dev: true
 
-  /@typescript-eslint/typescript-estree@2.34.0(typescript@3.9.10):
-    resolution: {integrity: sha512-OMAr+nJWKdlVM9LOqCqh3pQQPwxHAN7Du8DR6dmwCrAmxtiXQnhHJ6tBNtf+cggqfo51SG/FCwnKhXCIM7hnVg==}
-    engines: {node: ^8.10.0 || ^10.13.0 || >=11.10.1}
+  /@typescript-eslint/typescript-estree@8.21.0(typescript@5.7.3):
+    resolution: {integrity: sha512-x+aeKh/AjAArSauz0GiQZsjT8ciadNMHdkUSwBB9Z6PrKc/4knM4g3UfHml6oDJmKC88a6//cdxnO/+P2LkMcg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
+      typescript: '>=4.8.4 <5.8.0'
     dependencies:
+      '@typescript-eslint/types': 8.21.0
+      '@typescript-eslint/visitor-keys': 8.21.0
       debug: 4.4.0
-      eslint-visitor-keys: 1.3.0
-      glob: 7.2.3
+      fast-glob: 3.3.3
       is-glob: 4.0.3
-      lodash: 4.17.21
+      minimatch: 9.0.5
       semver: 7.6.3
-      tsutils: 3.21.0(typescript@3.9.10)
-      typescript: 3.9.10
+      ts-api-utils: 2.0.0(typescript@5.7.3)
+      typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@typescript-eslint/utils@8.21.0(eslint@6.8.0)(typescript@5.7.3):
+    resolution: {integrity: sha512-xcXBfcq0Kaxgj7dwejMbFyq7IOHgpNMtVuDveK7w3ZGwG9owKzhALVwKpTF2yrZmEwl9SWdetf3fxNzJQaVuxw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '>=4.8.4 <5.8.0'
+    dependencies:
+      '@eslint-community/eslint-utils': 4.4.1(eslint@6.8.0)
+      '@typescript-eslint/scope-manager': 8.21.0
+      '@typescript-eslint/types': 8.21.0
+      '@typescript-eslint/typescript-estree': 8.21.0(typescript@5.7.3)
+      eslint: 6.8.0
+      typescript: 5.7.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@typescript-eslint/visitor-keys@8.21.0:
+    resolution: {integrity: sha512-BkLMNpdV6prozk8LlyK/SOoWLmUFi+ZD+pcqti9ILCbVvHGk1ui1g4jJOc2WDLaeExz2qWwojxlPce5PljcT3w==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    dependencies:
+      '@typescript-eslint/types': 8.21.0
+      eslint-visitor-keys: 4.2.0
     dev: true
 
   /@zeit/ncc@0.20.5:
@@ -1651,6 +1684,10 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /async@3.2.6:
+    resolution: {integrity: sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==}
+    dev: true
+
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
@@ -1796,6 +1833,12 @@ packages:
       concat-map: 0.0.1
     dev: true
 
+  /brace-expansion@2.0.1:
+    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
+    dependencies:
+      balanced-match: 1.0.2
+    dev: true
+
   /braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
@@ -1878,11 +1921,6 @@ packages:
     dependencies:
       pascal-case: 3.1.2
       tslib: 2.2.0
-    dev: true
-
-  /camelcase@4.1.0:
-    resolution: {integrity: sha512-FxAv7HpHrXbh3aPo4o2qxHay2lkLY3x5Mw3KeE4KQE8ysVfziWeRZDwcjauvwBSGEC/nXUPzZy8zeh4HokqOnw==}
-    engines: {node: '>=4'}
     dev: true
 
   /camelcase@5.3.1:
@@ -2228,6 +2266,14 @@ packages:
       gopd: 1.2.0
     dev: true
 
+  /ejs@3.1.10:
+    resolution: {integrity: sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==}
+    engines: {node: '>=0.10.0'}
+    hasBin: true
+    dependencies:
+      jake: 10.9.2
+    dev: true
+
   /electron-to-chromium@1.5.84:
     resolution: {integrity: sha512-I+DQ8xgafao9Ha6y0qjHHvpZ9OfyA1qKlkHkjywxzniORU2awxyz7f/iVJcULmrF2yrM3nHQf+iDjJtbbexd/g==}
     dev: true
@@ -2472,7 +2518,7 @@ packages:
       string-natural-compare: 3.0.1
     dev: true
 
-  /eslint-plugin-github@2.0.0(@babel/plugin-syntax-flow@7.26.0)(@babel/plugin-transform-react-jsx@7.25.9)(@types/node@22.10.7)(eslint@6.8.0)(flow-bin@0.259.1)(graphql@15.10.1)(typescript@3.9.10):
+  /eslint-plugin-github@2.0.0(@babel/plugin-syntax-flow@7.26.0)(@babel/plugin-transform-react-jsx@7.25.9)(@types/node@22.10.7)(eslint@6.8.0)(flow-bin@0.259.1)(graphql@15.10.1)(jest@29.7.0)(typescript@5.7.3):
     resolution: {integrity: sha512-bG8rnKk8wCEN4dnKYx4kMCxeFaA2Rtxb0Sh5xAvR1aQKukuqtcp7XjJ+q38LJpC0twYWtiYeBEuJoy0cCh2whw==}
     engines: {node: '>=8.11.1'}
     hasBin: true
@@ -2481,41 +2527,43 @@ packages:
       flow-bin: '>=0.70.0'
       graphql: '>=14.0.0'
     dependencies:
-      '@typescript-eslint/eslint-plugin': 1.13.0(@typescript-eslint/parser@1.13.0)(eslint@6.8.0)(typescript@3.9.10)
+      '@typescript-eslint/eslint-plugin': 1.13.0(@typescript-eslint/parser@1.13.0)(eslint@6.8.0)(typescript@5.7.3)
       '@typescript-eslint/parser': 1.13.0(eslint@6.8.0)
       babel-eslint: 10.1.0(eslint@6.8.0)
       eslint: 6.8.0
       eslint-config-prettier: 4.3.0(eslint@6.8.0)
       eslint-plugin-eslint-comments: 3.2.0(eslint@6.8.0)
       eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.26.0)(@babel/plugin-transform-react-jsx@7.25.9)(eslint@6.8.0)
-      eslint-plugin-graphql: 4.0.0(@types/node@22.10.7)(graphql@15.10.1)(typescript@3.9.10)
+      eslint-plugin-graphql: 4.0.0(@types/node@22.10.7)(graphql@15.10.1)(typescript@5.7.3)
       eslint-plugin-import: 2.31.0(@typescript-eslint/parser@1.13.0)(eslint@6.8.0)
-      eslint-plugin-jest: 22.21.0(eslint@6.8.0)
+      eslint-plugin-jest: 28.11.0(@typescript-eslint/eslint-plugin@1.13.0)(eslint@6.8.0)(jest@29.7.0)(typescript@5.7.3)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@6.8.0)
-      eslint-plugin-prettier: 3.4.1(eslint-config-prettier@4.3.0)(eslint@6.8.0)(prettier@1.19.1)
+      eslint-plugin-prettier: 5.2.3(eslint-config-prettier@4.3.0)(eslint@6.8.0)(prettier@3.4.2)
       eslint-plugin-react: 7.37.4(eslint@6.8.0)
       eslint-plugin-relay: 1.8.3
       eslint-rule-documentation: 1.0.23
       flow-bin: 0.259.1
       graphql: 15.10.1
       inquirer: 6.5.2
-      prettier: 1.19.1
+      prettier: 3.4.2
       read-pkg-up: 4.0.0
       svg-element-attributes: 1.3.1
     transitivePeerDependencies:
       - '@babel/plugin-syntax-flow'
       - '@babel/plugin-transform-react-jsx'
+      - '@types/eslint'
       - '@types/node'
       - bufferutil
       - encoding
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
+      - jest
       - supports-color
       - typescript
       - utf-8-validate
     dev: true
 
-  /eslint-plugin-graphql@4.0.0(@types/node@22.10.7)(graphql@15.10.1)(typescript@3.9.10):
+  /eslint-plugin-graphql@4.0.0(@types/node@22.10.7)(graphql@15.10.1)(typescript@5.7.3):
     resolution: {integrity: sha512-d5tQm24YkVvCEk29ZR5ScsgXqAGCjKlMS8lx3mS7FS/EKsWbkvXQImpvic03EpMIvNTBW5e+2xnHzXB/VHNZJw==}
     engines: {node: '>=10.0'}
     peerDependencies:
@@ -2523,7 +2571,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.26.0
       graphql: 15.10.1
-      graphql-config: 3.4.1(@types/node@22.10.7)(graphql@15.10.1)(typescript@3.9.10)
+      graphql-config: 3.4.1(@types/node@22.10.7)(graphql@15.10.1)(typescript@5.7.3)
       lodash.flatten: 4.4.0
       lodash.without: 4.4.0
     transitivePeerDependencies:
@@ -2571,14 +2619,26 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-jest@22.21.0(eslint@6.8.0):
-    resolution: {integrity: sha512-OaqnSS7uBgcGiqXUiEnjoqxPNKvR4JWG5mSRkzVoR6+vDwlqqp11beeql1hYs0HTbdhiwrxWLxbX0Vx7roG3Ew==}
-    engines: {node: '>=6'}
+  /eslint-plugin-jest@28.11.0(@typescript-eslint/eslint-plugin@1.13.0)(eslint@6.8.0)(jest@29.7.0)(typescript@5.7.3):
+    resolution: {integrity: sha512-QAfipLcNCWLVocVbZW8GimKn5p5iiMcgGbRzz8z/P5q7xw+cNEpYqyzFMtIF/ZgF2HLOyy+dYBut+DoYolvqig==}
+    engines: {node: ^16.10.0 || ^18.12.0 || >=20.0.0}
     peerDependencies:
-      eslint: '>=5'
+      '@typescript-eslint/eslint-plugin': ^6.0.0 || ^7.0.0 || ^8.0.0
+      eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+      jest: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/eslint-plugin':
+        optional: true
+      jest:
+        optional: true
     dependencies:
-      '@typescript-eslint/experimental-utils': 1.13.0(eslint@6.8.0)
+      '@typescript-eslint/eslint-plugin': 1.13.0(@typescript-eslint/parser@1.13.0)(eslint@6.8.0)(typescript@5.7.3)
+      '@typescript-eslint/utils': 8.21.0(eslint@6.8.0)(typescript@5.7.3)
       eslint: 6.8.0
+      jest: 29.7.0(@types/node@22.10.7)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
     dev: true
 
   /eslint-plugin-jsx-a11y@6.10.2(eslint@6.8.0):
@@ -2605,21 +2665,25 @@ packages:
       string.prototype.includes: 2.0.1
     dev: true
 
-  /eslint-plugin-prettier@3.4.1(eslint-config-prettier@4.3.0)(eslint@6.8.0)(prettier@1.19.1):
-    resolution: {integrity: sha512-htg25EUYUeIhKHXjOinK4BgCcDwtLHjqaxCDsMy5nbnUMkKFvIhMVCp+5GFUXQ4Nr8lBsPqtGAqBenbpFqAA2g==}
-    engines: {node: '>=6.0.0'}
+  /eslint-plugin-prettier@5.2.3(eslint-config-prettier@4.3.0)(eslint@6.8.0)(prettier@3.4.2):
+    resolution: {integrity: sha512-qJ+y0FfCp/mQYQ/vWQ3s7eUlFEL4PyKfAJxsnYTJ4YT73nsJBWqmEpFryxV9OeUiqmsTsYJ5Y+KDNaeP31wrRw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      eslint: '>=5.0.0'
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
       eslint-config-prettier: '*'
-      prettier: '>=1.13.0'
+      prettier: '>=3.0.0'
     peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
       eslint-config-prettier:
         optional: true
     dependencies:
       eslint: 6.8.0
       eslint-config-prettier: 4.3.0(eslint@6.8.0)
-      prettier: 1.19.1
+      prettier: 3.4.2
       prettier-linter-helpers: 1.0.0
+      synckit: 0.9.2
     dev: true
 
   /eslint-plugin-react@7.37.4(eslint@6.8.0):
@@ -2683,16 +2747,19 @@ packages:
       eslint-visitor-keys: 1.3.0
     dev: true
 
-  /eslint-utils@2.1.0:
-    resolution: {integrity: sha512-w94dQYoauyvlDc43XnGB8lU3Zt713vNChgt4EWwhXAP2XkBvndfxF0AgIqKOOasjPIPzj9JqgwkwbCYD0/V3Zg==}
-    engines: {node: '>=6'}
-    dependencies:
-      eslint-visitor-keys: 1.3.0
-    dev: true
-
   /eslint-visitor-keys@1.3.0:
     resolution: {integrity: sha512-6J72N8UNa462wa/KFODt/PJ3IU60SDpC3QXC1Hjc1BXXpfL2C9R5+AU7jhe0F6GREqVMh4Juu+NY7xn+6dipUQ==}
     engines: {node: '>=4'}
+    dev: true
+
+  /eslint-visitor-keys@3.4.3:
+    resolution: {integrity: sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /eslint-visitor-keys@4.2.0:
+    resolution: {integrity: sha512-UyLnSehNt62FFhSwjZlHmeokpRK59rcz29j+F1/aDgbkbRTk7wIc9XzdoasMUbRNKDM0qQt/+BJ4BrpFeABemw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dev: true
 
   /eslint@6.8.0:
@@ -2917,6 +2984,12 @@ packages:
       flat-cache: 2.0.1
     dev: true
 
+  /filelist@1.0.4:
+    resolution: {integrity: sha512-w1cEuf3S+DrLCQL7ET6kz+gmlJdbq9J7yXCSjK/OZCPA+qEN1WyF4ZAf0YYJa4/shHJra2t/d/r8SV4Ji+x+8Q==}
+    dependencies:
+      minimatch: 5.1.6
+    dev: true
+
   /fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
@@ -3134,13 +3207,13 @@ packages:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: true
 
-  /graphql-config@3.4.1(@types/node@22.10.7)(graphql@15.10.1)(typescript@3.9.10):
+  /graphql-config@3.4.1(@types/node@22.10.7)(graphql@15.10.1)(typescript@5.7.3):
     resolution: {integrity: sha512-g9WyK4JZl1Ko++FSyE5Ir2g66njfxGzrDDhBOwnkoWf/t3TnnZG6BBkWP+pkqVJ5pqMJGPKHNrbew8jRxStjhw==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dependencies:
-      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2(cosmiconfig@7.0.0)(typescript@3.9.10)
+      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2(cosmiconfig@7.0.0)(typescript@5.7.3)
       '@graphql-tools/graphql-file-loader': 6.2.7(graphql@15.10.1)
       '@graphql-tools/json-file-loader': 6.2.6(graphql@15.10.1)
       '@graphql-tools/load': 6.2.8(graphql@15.10.1)
@@ -3657,6 +3730,17 @@ packages:
       get-proto: 1.0.1
       has-symbols: 1.1.0
       set-function-name: 2.0.2
+    dev: true
+
+  /jake@10.9.2:
+    resolution: {integrity: sha512-2P4SQ0HrLQ+fw6llpLnOaGAvN2Zu6778SJMrCUwns4fOoG9ayrTiZk3VV8sCPkVZF8ab0zksVpS8FDY5pRCNBA==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      async: 3.2.6
+      chalk: 4.1.2
+      filelist: 1.0.4
+      minimatch: 3.1.2
     dev: true
 
   /jest-changed-files@29.7.0:
@@ -4324,6 +4408,20 @@ packages:
       brace-expansion: 1.1.11
     dev: true
 
+  /minimatch@5.1.6:
+    resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
+  /minimatch@9.0.5:
+    resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
+    engines: {node: '>=16 || 14 >=14.17'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
@@ -4695,9 +4793,9 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
-  /prettier@1.19.1:
-    resolution: {integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==}
-    engines: {node: '>=4'}
+  /prettier@3.4.2:
+    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
@@ -5342,6 +5440,14 @@ packages:
       - encoding
     dev: true
 
+  /synckit@0.9.2:
+    resolution: {integrity: sha512-vrozgXDQwYO72vHjUb/HnFbQx1exDjoKzqx23aXEg2a9VIg2TSFZ8FmeZpTjUCFMYw7mpX4BE2SFu8wI7asYsw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@pkgr/core': 0.1.1
+      tslib: 2.8.1
+    dev: true
+
   /table@5.4.6:
     resolution: {integrity: sha512-wmEc8m4fjnob4gt5riFRtTu/6+4rSe12TpAELNSqHMfF3IqnA+CH37USM6/YR3qRZv7e56kAEAtd6nKZaxe0Ug==}
     engines: {node: '>=6.0.0'}
@@ -5390,27 +5496,54 @@ packages:
   /tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  /ts-jest@24.3.0(jest@29.7.0):
-    resolution: {integrity: sha512-Hb94C/+QRIgjVZlJyiWwouYUF+siNJHJHknyspaOcZ+OQAIdFG/UrdQVXw/0B8Z3No34xkUXZJpOTy9alOWdVQ==}
-    engines: {node: '>= 6'}
+  /ts-api-utils@2.0.0(typescript@5.7.3):
+    resolution: {integrity: sha512-xCt/TOAc+EOHS1XPnijD3/yzpH6qg2xppZO1YDqGoVsNXfQfzHpOdNuXwrwOU8u4ITXJyDCTyt8w5g1sZv9ynQ==}
+    engines: {node: '>=18.12'}
+    peerDependencies:
+      typescript: '>=4.8.4'
+    dependencies:
+      typescript: 5.7.3
+    dev: true
+
+  /ts-jest@29.2.5(@babel/core@7.26.0)(jest@29.7.0)(typescript@5.7.3):
+    resolution: {integrity: sha512-KD8zB2aAZrcKIdGk4OwpJggeLcH1FgrICqDSROWqlnJXGCXK4Mn6FcdK2B6670Xr73lHMG1kHw8R87A0ecZ+vA==}
+    engines: {node: ^14.15.0 || ^16.10.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
-      jest: '>=24 <25'
+      '@babel/core': '>=7.0.0-beta.0 <8'
+      '@jest/transform': ^29.0.0
+      '@jest/types': ^29.0.0
+      babel-jest: ^29.0.0
+      esbuild: '*'
+      jest: ^29.0.0
+      typescript: '>=4.3 <6'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@jest/transform':
+        optional: true
+      '@jest/types':
+        optional: true
+      babel-jest:
+        optional: true
+      esbuild:
+        optional: true
     dependencies:
+      '@babel/core': 7.26.0
       bs-logger: 0.2.6
-      buffer-from: 1.1.2
+      ejs: 3.1.10
       fast-json-stable-stringify: 2.1.0
       jest: 29.7.0(@types/node@22.10.7)
+      jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
       make-error: 1.3.6
-      mkdirp: 0.5.6
-      resolve: 1.22.10
-      semver: 5.7.2
-      yargs-parser: 10.1.0
+      semver: 7.6.3
+      typescript: 5.7.3
+      yargs-parser: 21.1.1
     dev: true
 
-  /ts-node@9.1.1(typescript@3.9.10):
+  /ts-node@9.1.1(typescript@5.7.3):
     resolution: {integrity: sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
@@ -5422,7 +5555,7 @@ packages:
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.21
-      typescript: 3.9.10
+      typescript: 5.7.3
       yn: 3.1.1
     dev: true
 
@@ -5455,14 +5588,14 @@ packages:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
     dev: true
 
-  /tsutils@3.21.0(typescript@3.9.10):
+  /tsutils@3.21.0(typescript@5.7.3):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 3.9.10
+      typescript: 5.7.3
     dev: true
 
   /tunnel@0.0.6:
@@ -5537,9 +5670,9 @@ packages:
       reflect.getprototypeof: 1.0.10
     dev: true
 
-  /typescript@3.9.10:
-    resolution: {integrity: sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==}
-    engines: {node: '>=4.2.0'}
+  /typescript@5.7.3:
+    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
+    engines: {node: '>=14.17'}
     hasBin: true
     dev: true
 
@@ -5781,12 +5914,6 @@ packages:
   /yaml@1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
-    dev: true
-
-  /yargs-parser@10.1.0:
-    resolution: {integrity: sha512-VCIyR1wJoEBZUqk5PA+oOBF6ypbwh5aNB3I50guxAL/quggdfs4TtNHQrSazFA3fYZ+tEqfs0zIGlv0c/rgjbQ==}
-    dependencies:
-      camelcase: 4.1.0
     dev: true
 
   /yargs-parser@21.1.1:
