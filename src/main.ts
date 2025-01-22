@@ -85,7 +85,7 @@ async function getMergedPullRequest(
   });
 
   const assignees = pull.assignees || [];
-  let merged_by : Committer | null = null;
+  let merged_by: Committer | null = null;
   if (merged_commit.data.author) {
     merged_by = {
       login: merged_commit.data.author.login,
