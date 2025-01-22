@@ -41,38 +41,43 @@ async function getMergedPullRequest(
   sha: string
 ): Promise<PullRequest | null> {
   const octokit = github.getOctokit(githubToken);
+
   type PullsListResponseData = GetResponseDataTypeFromEndpointMethod<
     typeof octokit.rest.pulls.list
   >;
+  type PullsListResponseDataItem = PullsListResponseData[number];
   type Label = GetResponseDataTypeFromEndpointMethod<
     typeof octokit.rest.pulls.get
   >['labels'][0];
-  type Assignee = GetResponseDataTypeFromEndpointMethod<
-    typeof octokit.rest.pulls.get
-  >['assignees'][0];
+  type Assignee = NonNullable<
+    GetResponseDataTypeFromEndpointMethod<
+      typeof octokit.rest.pulls.get
+    >['assignees']
+  >[number];
 
-  const resp = await octokit.rest.pulls.list({
+  const resp = (await octokit.rest.pulls.list({
     owner,
     repo,
     sort: 'updated',
     direction: 'desc',
     state: 'closed',
     per_page: 100
-  });
+  })) as { data: PullsListResponseData };
 
   const pull = resp.data.find(
-    (p: PullsListResponseData) => p.merge_commit_sha === sha
+    (p: PullsListResponseDataItem) => p.merge_commit_sha === sha
   );
   if (!pull) {
     return null;
   }
 
+  const assignees = pull.assignees || [];
   return {
     title: pull.title,
-    body: pull.body,
+    body: pull.body ?? '',
     number: pull.number,
     labels: pull.labels.map((l: Label) => l.name),
-    assignees: pull.assignees.map((a: Assignee) => a.login)
+    assignees: assignees.map((a: Assignee) => a.login)
   };
 }
 
