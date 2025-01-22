@@ -15,51 +15,70 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const github = __nccwpck_require__(2819);
-const core = __nccwpck_require__(9999);
+const github_1 = __importDefault(__nccwpck_require__(2819));
+const core_1 = __importDefault(__nccwpck_require__(9999));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         var _a, _b;
         try {
-            const pull = yield getMergedPullRequest(core.getInput('github_token'), github.context.repo.owner, github.context.repo.repo, github.context.sha);
+            const pull = yield getMergedPullRequest(core_1.default.getInput('github_token'), github_1.default.context.repo.owner, github_1.default.context.repo.repo, github_1.default.context.sha);
             if (!pull) {
-                core.debug('pull request not found');
+                core_1.default.debug('pull request not found');
                 return;
             }
-            core.setOutput('title', pull.title);
-            core.setOutput('body', pull.body);
-            core.setOutput('number', pull.number);
-            core.setOutput('labels', (_a = pull.labels) === null || _a === void 0 ? void 0 : _a.join('\n'));
-            core.setOutput('assignees', (_b = pull.assignees) === null || _b === void 0 ? void 0 : _b.join('\n'));
+            core_1.default.setOutput('title', pull.title);
+            core_1.default.setOutput('body', pull.body);
+            core_1.default.setOutput('number', pull.number);
+            core_1.default.setOutput('labels', (_a = pull.labels) === null || _a === void 0 ? void 0 : _a.join('\n'));
+            core_1.default.setOutput('assignees', (_b = pull.assignees) === null || _b === void 0 ? void 0 : _b.join('\n'));
         }
         catch (e) {
-            core.error(e);
-            core.setFailed(e.message);
+            core_1.default.error(e);
+            core_1.default.setFailed(e.message);
         }
     });
 }
 function getMergedPullRequest(githubToken, owner, repo, sha) {
     return __awaiter(this, void 0, void 0, function* () {
-        const octokit = github.getOctokit(githubToken);
-        const resp = yield octokit.rest.pulls.list({
+        var _a;
+        const octokit = github_1.default.getOctokit(githubToken);
+        const resp = (yield octokit.rest.pulls.list({
             owner,
             repo,
             sort: 'updated',
             direction: 'desc',
             state: 'closed',
             per_page: 100
-        });
+        }));
         const pull = resp.data.find((p) => p.merge_commit_sha === sha);
         if (!pull) {
             return null;
         }
+        const merged_commit = yield octokit.rest.repos.getCommit({
+            owner,
+            repo,
+            ref: sha
+        });
+        const assignees = pull.assignees || [];
+        let merged_by = null;
+        if (merged_commit.data.author) {
+            merged_by = {
+                login: merged_commit.data.author.login,
+                email: merged_commit.data.author.email,
+                name: merged_commit.data.author.name
+            };
+        }
         return {
             title: pull.title,
-            body: pull.body,
+            body: (_a = pull.body) !== null && _a !== void 0 ? _a : '',
             number: pull.number,
             labels: pull.labels.map((l) => l.name),
-            assignees: pull.assignees.map((a) => a.login)
+            assignees: assignees.map((a) => a.login),
+            merged_by
         };
     });
 }
