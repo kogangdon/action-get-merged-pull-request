@@ -30,13 +30,24 @@ For further details, see https://help.github.com/en/actions/reference/events-tha
 
 ## Outputs
 
-|    NAME     |                                              DESCRIPTION                                               |   TYPE   |
-| ----------- | ------------------------------------------------------------------------------------------------------ | -------- |
-| `title`     | The title of the pull request.                                                                         | `string` |
-| `body`      | The body of the pull request.                                                                          | `string` |
-| `number`    | The number of the pull request.                                                                        | `number` |
-| `labels`    | The list of labels for the pull request. Separated with line breaks if there're multiple labels.       | `string` |
-| `assignees` | The list of assignees for the pull request. Separated with line breaks if there're multiple assignees. | `string` |
+|    NAME     |                                              DESCRIPTION                                               |     TYPE    |
+| ----------- | ------------------------------------------------------------------------------------------------------ | ----------- |
+| `title`     | The title of the pull request.                                                                         | `string`    |
+| `body`      | The body of the pull request.                                                                          | `string`    |
+| `number`    | The number of the pull request.                                                                        | `number`    |
+| `labels`    | The list of labels for the pull request. Separated with line breaks if there're multiple labels.       | `string`    |
+| `assignees` | The list of assignees for the pull request. Separated with line breaks if there're multiple assignees. | `string`    |
+| `merged_by` | The committer who merged the pull request.                                                             | `Committer` |
+
+### `Committer` Interface
+
+```typescript
+interface Committer {
+    login: string;
+    email: string | null | undefined;
+    name: string | null | undefined;
+}
+```
 
 ## License
 

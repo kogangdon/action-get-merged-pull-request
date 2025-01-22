@@ -2,12 +2,19 @@ import github from '@actions/github';
 import core from '@actions/core';
 import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 
+interface Committer {
+  login: string;
+  email: string | null | undefined;
+  name: string | null | undefined;
+}
+
 interface PullRequest {
   title: string;
   body: string;
   number: number;
   labels: string[] | null;
   assignees: string[] | null;
+  merged_by: Committer | null;
 }
 
 async function run(): Promise<void> {
@@ -71,13 +78,28 @@ async function getMergedPullRequest(
     return null;
   }
 
+  const merged_commit = await octokit.rest.repos.getCommit({
+    owner,
+    repo,
+    ref: sha
+  });
+
   const assignees = pull.assignees || [];
+  let merged_by : Committer | null = null;
+  if (merged_commit.data.author) {
+    merged_by = {
+      login: merged_commit.data.author.login,
+      email: merged_commit.data.author.email,
+      name: merged_commit.data.author.name
+    };
+  }
   return {
     title: pull.title,
     body: pull.body ?? '',
     number: pull.number,
     labels: pull.labels.map((l: Label) => l.name),
-    assignees: assignees.map((a: Assignee) => a.login)
+    assignees: assignees.map((a: Assignee) => a.login),
+    merged_by
   };
 }
 
